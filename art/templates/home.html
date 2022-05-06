@@ -1,0 +1,79 @@
+<link rel="shortcut icon" href="images/articon5.png">
+<title>Artmystery</title>
+{% load static %}
+<style>
+      body{
+      font-family: 'Raleway', sans-serif;
+      background: #000;
+      }
+      .background{
+      background: url(images/bg-5.jpg) no-repeat;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      }
+      
+      .homecontent{
+      width:95%;
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      text-align:center;
+      color:#fff;
+      }
+      .homecontent h3{
+      font-size:70px;
+      margin-top:80px;
+      transition:1.5s;
+      }
+      .content button:hover{
+      background-color:black;
+      }
+      .content2 button {
+      width: 200px;
+      padding: 25px;
+      text-align: center;
+      border-radius: 25px;
+      font-weight: strong;
+      color: #fff;
+      // cursor:pointer;
+      position: relative;
+      overflow: hidden;
+      margin-left: 20px;
+      transition: all 0.3s ease 0s;
+      background-color: rgba(225,91,71,1);
+      background-color: #0005;
+      transition: 0.7s all;
+}
+
+.content2 button:hover {
+            background-color: #ff8ab1;
+            color:black;
+</style>
+
+
+<div class="background">
+ <div class="homecontent">
+ 
+    <h3>Welcome to Art Mystery</h3>
+    <div class="content2">
+      {% if user.is_authenticated %}
+   
+        <a href="neworder">
+
+         <button type="button"><span>NEW ORDER</span></button>
+        </a>
+
+        <a href="store">
+
+         <button type="button"><span>STORE</span></button>
+        </a>
+      {% else %}
+        <a href="login">
+         <button type="button"><span>LOGIN</span></button>
+        </a>
+      {% endif %}
+    </div>
+ </div>
+</div>
+

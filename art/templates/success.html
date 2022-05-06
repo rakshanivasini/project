@@ -1,0 +1,80 @@
+﻿<link rel="shortcut icon" href="images/articon5.png">
+<!DOCTYPE html>
+{% load static %}
+
+<h1>Thank you for purchasing : )</h1>
+<br>
+<br>
+
+<html>
+  <head>
+    <title>Artmystery</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        text-align: center;
+        padding: 40px 0;
+        background: #EBF0F5;
+      }
+        h1 {
+          color:#141414;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-weight: 900;
+          font-size: 40px;
+          margin-bottom: 10px;
+        }
+        p {
+          color: #404F5E;
+          font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+          font-size:20px;
+          margin: 0;
+        }
+      i {
+        color: #9ABC66;
+        font-size: 100px;
+        line-height: 200px;
+        margin-left:-15px;
+      }
+      .card {
+        background: white;
+        padding: 60px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+      }
+      .button {
+        border-radius: 5px; /*round border*/
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
+      .button5 {
+        background-color: white;
+        color: #9ABC66;
+        border: 2px solid #9ABC66;
+      }
+      .button5:hover {
+        background-color: #9ABC66;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="card">
+      <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+        <i class="checkmark">✓</i>
+      </div>
+        <h2>Order received!!!</h2> 
+        <p>You can receive your art within a couple of days.<br/> Thank you {{user.username}} ,shop again...</p><br>
+        <a class="button button5" href="store">&#x2190;Back To Store</a>
+      </div>
+  </body>
+</html>  

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+        <title>Artmystery</title>
+        <link rel="shortcut icon" href="images/articon5.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="{% url 'store' %}">Artmystery</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      
+	    </ul>
+	    <div class="form-inline my-2 my-lg-0">
+            <li><a href="home">Home</a></li>
+            <li><a href="neworder">New Order</a></li>
+		    <li><a href="store">Store</a></li>
+            {% if user.is_authenticated %}
+            
+            <li><a href="logout">Logout</a></li>
+            <li><a style="color:#fff;"><i>Hello, {{user.username}} : )</i></a></li>
+
+            {% else %}
+            <li><a href='login'>Login</a></li>
+			<li><a href='register'>Register</a></li>
+            {% endif %}	     
+	    </div>
+	  </div>
+   </nav>
+
+  
+    
+   <div >
+            <div class="col-md-6">
+                
+            <br>
+            <br>           
+                    
+            <div class="col-lg-17">
+			<div class="box-element" id="form-wrapper">
+				<form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <hr>
+				            <h3>  New Order</h3>
+				            <hr>
+                            <div class="form-field">
+                                
+                                <input type="text" Required name="name" class="form-control" placeholder="Name..">
+                            </div>
+                            <div class="form-field">
+                                
+                                <input type="text" Required name="address" class="form-control" placeholder="Address..">
+                            </div>
+                           
+                            <div class="form-field">
+                                <input type= "text" class="form-control" list="type" name="type" placeholder="Type..">
+                                <datalist id="type">
+                                <option value="Acrylic Painting">
+                                <option value="Oil Painting">
+                                <option value="Pencil Sketch">
+                                <option value="Watercolor Painting">
+                                <option value="Color pencil sketch">
+                                <option value="Charcoal Drawing">"
+                                </datalist>
+                            </div>
+                           
+                            <div class="form-field">
+                                <input type= "text" class="form-control" list="size" name="size" placeholder="Size..">
+                                <datalist id="size">
+                                <option value="700*700">
+                                <option value="600*89">
+                                <option value="890*879">
+                                <option value="879*898">
+                                <option value="456*1200">
+            
+                                </datalist>
+                            </div>
+                            <div class="form-field">
+                                
+                                <input type="text" Required name="phone_num" class="form-control" placeholder="Phone Number..">
+                            </div>
+                            <br><br>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Image:</label>
+                                <input type="file" Required name="image" class="form-control">
+                            </div>
+                            
+                       
+
+					        <hr>
+					        <input id="form-button" class="btn btn-success btn-block" type="submit" value="Place Order">
+				</form>
+			</div>
+
+			<br>
+			<div class="box-element hidden" id="payment-info">
+				<small>Paypal Options</small>
+				<div id="paypal-button-container"></div>
+		        To proceed to cash on delivery option, just click ...       <button id="make-payment" class="button button5">Place Order</button>
+				<br>
+			</div>	
+		    </div>
+            </div>
+   </div>
+   
+</body>
+</html>

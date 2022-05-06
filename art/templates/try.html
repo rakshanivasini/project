@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Art Mystery</title>
+    <link rel="stylesheet" href="{% static 'css/trylogin-style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/trystyle.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div>
+               <a href="/">Art Mystery</a>
+        </div>
+        <nav>
+           <ul id='MenuItems'>
+               <li><a href="/">Home</a></li>
+               <li><a href='#'>About Us</a></li>
+               <li><a href='#'>Services</a></li>
+               <li><a href='#'>Contact</a></li>
+               <li><a href='register'>Register</a></li>
+               
+           </ul>
+        </nav>
+    </div>
+    <main>
+       <div class="background">
+            <div class="text">
+                <h1>Login</h1>
+                <p>No Account? <a href="register">Sign up</a></p>
+            </div>
+            <div class="box">
+                <br>
+                <br><br><br><br>
+                <form action="login" class="form" method="post">
+                    {% csrf_token %}
+		            <input type='text' class='input-field' name="username" placeholder='User Name' required>
+		            <input type='password' class='input-field' name="password" placeholder='Enter Password' required>
+		            
+                    <br><br>
+                    <div>
+                      {% for message in messages %}
+                      <p style="color:#fff">{{message}}</p>
+                      <br>
+                      {% endfor %}
+                    </div>
+                    <br>
+                    <input type="submit" class="button" value="Login">
+                </form>
+            </div>
+       </div>
+    </main>
+</body>
+</html>

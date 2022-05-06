@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/articon5.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Artmystery</title>
+    <link rel="stylesheet" href="{% static 'css/login-style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <main>
+        <div class="background">
+            <div class="text">
+                <h1>Login</h1>
+                <p>No Account? <a href="register">Sign up</a></p>
+            </div>
+            <div class="box">
+                <form action="login" class="form" method="post">
+                    {% csrf_token %}
+		            <input type='text' class='username' name="username" placeholder='User Name' required>
+		            <input type='password' class='password' name="password" placeholder='Enter Password' required>
+		            
+                    <br><br>
+                    <div>
+                      {% for message in messages %}
+                      <h3>{{message}}</h3>
+                      <br>
+                      {% endfor %}
+                    </div>
+                    <br>
+                    <input type="submit" class="button" value="Login">
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
